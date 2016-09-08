@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-
+import { Hero } from './hero';
 
 
 /**
@@ -7,13 +7,23 @@ import { Component, Input } from '@angular/core';
  */
 @Component({
     selector: 'my-hero-detail',
+    template: `
+  <div *ngIf="hero">
+    <h2>{{hero.name}} details!</h2>
+    <div><label>id: </label>{{hero.id}}</div>
+    <div>
+      <label>name: </label>
+      <input [(ngModel)]="hero.name" placeholder="name"/>
+    </div>
+  </div>
+`
 })
 
 /**
  * Then we export the class to make it available to other components.
  *  */
 export class HeroDetailComponent {
-
+    hero: Hero;
 }
 
 /**
