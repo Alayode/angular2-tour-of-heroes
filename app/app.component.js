@@ -15,18 +15,38 @@ var Hero = (function () {
     return Hero;
 }());
 exports.Hero = Hero;
+//Our app needs more heros lets create an array of heroes using the const from ECMAScript2015
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const
+/**
+ * const
+ *
+ * The const declaration creates a read-only reference to a value.
+ * It does not mean the value it holds is immutable,
+ * just that the variable identifier cannot be reassigned.
+ *
+*/
+var HEROES = [
+    { id: 11, name: 'Mr. Nice' },
+    { id: 12, name: 'Narco' },
+    { id: 13, name: 'Bombasto' },
+    { id: 14, name: 'Celeritas' },
+    { id: 15, name: 'Magneta' },
+    { id: 16, name: 'RubberMan' },
+    { id: 17, name: 'Dynama' },
+    { id: 18, name: 'Dr IQ' },
+    { id: 19, name: 'Magma' },
+    { id: 20, name: 'Tornado' }
+];
 var AppComponent = (function () {
     function AppComponent() {
         this.title = 'Tour of Heroes';
-        this.hero = {
-            id: 1,
-            name: 'Windstorm'
-        };
+        //Lets create a public property in AppComponent that exposes the heroes for binding 
+        this.heroes = HEROES;
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n  <h1>{{title}}</h1>\n  <h2>{{hero.name}} details!</h2>\n  <div><label>id: </label>{{hero.id}}</div>\n  <div>\n    <label>name: </label>\n    <input [(ngModel)]=\"hero.name\" placeholder=\"name\">\n  </div>\n  "
+            template: "\n  <h1>{{title}}</h1>\n  <h2>{{hero.name}} details!</h2>\n  <h2>My Heroes</h2>\n  <ul class=\"heroes\">\n  <li>\n    <!-- each hero goes here -->\n  </li>\n  </ul>\n  <div><label>id: </label>{{hero.id}}</div>\n  <div>\n    <label>name: </label>\n    <input [(ngModel)]=\"hero.name\" placeholder=\"name\">\n  </div>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
