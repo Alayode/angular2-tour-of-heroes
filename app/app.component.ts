@@ -41,9 +41,9 @@ const HEROES: Hero[] = [
   <h2>{{hero.name}} details!</h2>
   <h2>My Heroes</h2>
   <ul class="heroes">
-  <li>
-    <!-- each hero goes here -->
-  </li>
+ <li *ngFor="let hero of heroes">
+  <span class="badge">{{hero.id}}</span> {{hero.name}}
+</li>
   </ul>
   <div><label>id: </label>{{hero.id}}</div>
   <div>
