@@ -33,6 +33,13 @@ const HEROES: Hero[] = [
   { id: 20, name: 'Tornado' }
 ];
 
+/**
+ *  The key is the name of the CSS class (selected).
+ *  The value is true if the two heroes match and false otherwise. 
+ *  We’re saying “apply the selected class if the heroes match, remove it if they don’t”. 
+ **/
+
+
 
 @Component({
   selector: 'my-app',
