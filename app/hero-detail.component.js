@@ -9,12 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var hero_1 = require('./hero');
 /**
  * We create metadata with the @Component decorator where we specify the    selector name that identifies this component's element.
  */
 var HeroDetailComponent = (function () {
     function HeroDetailComponent() {
     }
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', hero_1.Hero)
+    ], HeroDetailComponent.prototype, "hero", void 0);
     HeroDetailComponent = __decorate([
         core_1.Component({
             selector: 'my-hero-detail',
@@ -30,4 +35,4 @@ exports.HeroDetailComponent = HeroDetailComponent;
  * corresponding <my-hero-detail> element.
  *
  */ 
-//# sourceMappingURL=hero-detail.components.js.map
+//# sourceMappingURL=hero-detail.component.js.map

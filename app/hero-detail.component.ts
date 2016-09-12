@@ -22,7 +22,16 @@ import { Hero } from './hero';
 /**
  * Then we export the class to make it available to other components.
  *  */
+
+//INPUT PROPERTIES
+/** 
+ * to learn more about input properties and why we use them https://angular.io/docs/ts/latest/guide/attribute-directives.html#!#why-input
+ * 
+*/
+
+
 export class HeroDetailComponent {
+    @Input()
     hero: Hero;
 }
 
