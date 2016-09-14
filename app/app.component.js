@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var hero_1 = require('./hero');
 //Our app needs more heros lets create an array of heroes using the const from ECMAScript2015
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const
 /**
@@ -19,18 +20,8 @@ var core_1 = require('@angular/core');
  * just that the variable identifier cannot be reassigned.
  *
 */
-var HEROES = [
-    { id: 11, name: 'Mr. Nice' },
-    { id: 12, name: 'Narco' },
-    { id: 13, name: 'Bombasto' },
-    { id: 14, name: 'Celeritas' },
-    { id: 15, name: 'Magneta' },
-    { id: 16, name: 'RubberMan' },
-    { id: 17, name: 'Dynama' },
-    { id: 18, name: 'Dr IQ' },
-    { id: 19, name: 'Magma' },
-    { id: 20, name: 'Tornado' }
-];
+//move the mock data and replace it with a uninitialized heroes property
+heroes: hero_1.Hero[];
 /**
  *  The key is the name of the CSS class (selected).
  *  The value is true if the two heroes match and false otherwise.
