@@ -1,31 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 import { Hero } from './hero';
-
-
-//Our app needs more heros lets create an array of heroes using the const from ECMAScript2015
-//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const
-
-/** 
- * const
- * 
- * The const declaration creates a read-only reference to a value. 
- * It does not mean the value it holds is immutable, 
- * just that the variable identifier cannot be reassigned.
- *
-*/
-
-
-//move the mock data and replace it with a uninitialized heroes property
-
-heroes: Hero[];
-
-/**
- *  The key is the name of the CSS class (selected).
- *  The value is true if the two heroes match and false otherwise. 
- *  We’re saying “apply the selected class if the heroes match, remove it if they don’t”. 
- **/
-
-
+import { HeroService } from './hero.service';
 
 @Component({
   selector: 'my-app',
@@ -89,24 +65,25 @@ heroes: Hero[];
       margin-right: .8em;
       border-radius: 4px 0 0 4px;
     }
-  `]
+  `],
+  providers: [HeroService]
 })
+export class AppComponent implements OnInit {
+  title = 'Tour of Heroes';
+  heroes: Hero[];
+  selectedHero: Hero;
 
-export class AppComponent { 
-      title = 'Tour of Heroes';
-      //Lets create a public property in AppComponent that exposes the heroes for binding 
-      heroes = HEROES;
-      selectedHero: Hero;
-      //NOTE: We did not have to define the heroes type. TypeScript can infer it from the HEROES array.
+  constructor(private heroService: HeroService) { }
 
-      //DONT USE THIS NO MORE!!
-      //  hero: Hero = {
-      //     id: 1,
-      //     name: 'Windstorm'
-      //   };
+  getHeroes(): void {
+    this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+  }
 
-      // Now add an onSelect method that sets the selectedHero property to the hero the user clicked.
-      onSelect(hero: Hero): void {
-      this.selectedHero = hero;
-    }
+  ngOnInit(): void {
+    this.getHeroes();
+  }
+
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
 }
